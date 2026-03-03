@@ -13,11 +13,11 @@ export function ArticleCard({ article, currentUserEmail }: ArticleCardProps) {
   const isOwner = article.author === currentUserEmail
 
   return (
-    <Link href={`/articles/${article.id}`}>
-      <Card className="hover:shadow-md transition-shadow h-full cursor-pointer flex flex-col">
+    <Link href={`/articles/${article.id}`} className="group">
+      <Card className="hover:shadow-lg hover:border-primary hover:-translate-y-1 transition-all duration-200 h-full cursor-pointer flex flex-col">
         <CardHeader className="pb-2">
           <div className="flex items-start justify-between gap-2">
-            <CardTitle className="text-base font-semibold line-clamp-2 leading-snug">
+            <CardTitle className="text-base font-semibold line-clamp-2 leading-snug group-hover:text-primary transition-colors duration-200">
               {article.title}
             </CardTitle>
             {article.private && (

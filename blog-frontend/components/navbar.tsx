@@ -19,10 +19,10 @@ export function Navbar() {
     <header className="border-b bg-primary sticky top-0 z-50">
       <div className="max-w-5xl mx-auto px-4 h-14 flex items-center justify-between">
         <div className="flex items-center gap-4">
-          <Link href="/" className="font-bold text-lg tracking-tight text-primary-foreground">
+          <Link href="/" className="font-bold text-lg tracking-tight text-primary-foreground hover:text-secondary transition-colors duration-200">
             EnzouletteBlog
           </Link>
-          <Button asChild variant="ghost" size="sm" className="text-primary-foreground hover:bg-primary-foreground/10">
+          <Button asChild variant="ghost" size="sm" className="text-primary-foreground hover:text-secondary hover:bg-primary-foreground/10 transition-colors duration-200">
             <Link href="/articles">Potins</Link>
           </Button>
         </div>
@@ -40,7 +40,7 @@ export function Navbar() {
                   </Button>
                   <DropdownMenu>
                     <DropdownMenuTrigger asChild>
-                      <Button variant="ghost" size="sm" className="text-primary-foreground hover:bg-primary-foreground/10">
+                      <Button variant="ghost" size="sm" className="text-primary-foreground hover:text-secondary hover:bg-primary-foreground/10 transition-colors duration-200">
                         <User className="h-4 w-4 mr-1" />
                         {user.email.split("@")[0]}
                       </Button>
@@ -62,7 +62,7 @@ export function Navbar() {
                 </>
               ) : (
                 <>
-                  <Button asChild variant="ghost" size="sm" className="text-primary-foreground hover:bg-primary-foreground/10">
+                  <Button asChild variant="ghost" size="sm" className="text-primary-foreground hover:text-secondary hover:bg-primary-foreground/10 transition-colors duration-200">
                     <Link href="/login">Connexion</Link>
                   </Button>
                   <Button asChild size="sm" className="bg-secondary text-secondary-foreground hover:bg-secondary/90">
