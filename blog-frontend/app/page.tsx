@@ -16,10 +16,10 @@ export default async function HomePage() {
     <div className="w-full py-10">
 
       {/* En-tête */}
-      <div className="mb-8">
+      <div className="mb-8 text-center">
         <h1 className="text-4xl font-bold tracking-tight mb-1">EnzouletteBlog</h1>
         <p className="text-muted-foreground text-sm">Football, passion &amp; culture</p>
-        <div className="mt-4 border-t-2 border-primary" />
+        <div className="mt-4 border-t-4 border-secondary" />
       </div>
 
       {/* Stats discrètes */}
@@ -36,7 +36,7 @@ export default async function HomePage() {
       {/* À la une */}
       {featured && (
         <div className="mb-10">
-          <span className="text-xs font-bold uppercase tracking-widest text-primary">À la une</span>
+          <span className="text-xs font-bold uppercase tracking-widest text-secondary">À la une</span>
           <Link href={`/articles/${featured.id}`} className="group block mt-2">
             <h2 className="text-2xl font-bold leading-snug group-hover:text-primary transition-colors">
               {featured.title}
