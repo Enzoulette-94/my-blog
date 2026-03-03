@@ -17,7 +17,9 @@ export default async function HomePage() {
 
       {/* En-tête */}
       <div className="mb-8 text-center">
-        <h1 className="text-4xl font-bold tracking-tight mb-1">EnzouletteBlog</h1>
+        <h1 className="text-6xl font-bold tracking-tight mb-1 bg-gradient-to-r from-primary via-secondary to-primary bg-clip-text text-transparent bg-[length:200%_auto] animate-[shimmer_3s_linear_infinite]">
+          EnzouletteBlog
+        </h1>
         <p className="text-muted-foreground text-sm">Football, passion &amp; culture</p>
         <div className="mt-4 border-t-4 border-secondary" />
       </div>
