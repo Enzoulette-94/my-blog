@@ -13,7 +13,7 @@ export default async function HomePage() {
   const rest = articles.slice(1, 5)
 
   return (
-    <div className="max-w-2xl mx-auto py-10 px-4">
+    <div className="w-[70%] mx-auto py-10">
 
       {/* En-tête */}
       <div className="mb-8">
