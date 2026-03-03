@@ -14,7 +14,7 @@ export function ArticleCard({ article, currentUserEmail }: ArticleCardProps) {
 
   return (
     <Link href={`/articles/${article.id}`}>
-      <Card className="hover:shadow-md transition-shadow h-full cursor-pointer">
+      <Card className="hover:shadow-md transition-shadow h-full cursor-pointer flex flex-col">
         <CardHeader className="pb-2">
           <div className="flex items-start justify-between gap-2">
             <CardTitle className="text-base font-semibold line-clamp-2 leading-snug">
@@ -28,7 +28,7 @@ export function ArticleCard({ article, currentUserEmail }: ArticleCardProps) {
             )}
           </div>
         </CardHeader>
-        <CardContent className="pb-2">
+        <CardContent className="pb-2 flex-1">
           {article.content && (
             <p className="text-sm text-muted-foreground line-clamp-3">{article.content}</p>
           )}
