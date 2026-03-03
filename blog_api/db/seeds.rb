@@ -1,6 +1,9 @@
+require "open-uri"
+
 puts "Nettoyage de la base..."
 Comment.destroy_all
 Article.destroy_all
+Photo.destroy_all
 User.destroy_all
 
 puts "Création des utilisateurs..."
@@ -178,7 +181,41 @@ Article.public_articles.each do |article|
   end
 end
 
+puts "Téléchargement des photos..."
+PHOTOS = [
+  { keyword: "football",          lock: 1,  label: "football-1.jpg" },
+  { keyword: "football",          lock: 2,  label: "football-2.jpg" },
+  { keyword: "soccer",            lock: 1,  label: "soccer-1.jpg" },
+  { keyword: "soccer",            lock: 3,  label: "soccer-2.jpg" },
+  { keyword: "stadium",           lock: 1,  label: "stadium-1.jpg" },
+  { keyword: "stadium",           lock: 2,  label: "stadium-2.jpg" },
+  { keyword: "barcelona,football",lock: 1,  label: "barcelona-1.jpg" },
+  { keyword: "lyon,football",     lock: 1,  label: "lyon-1.jpg" },
+  { keyword: "argentina,football",lock: 1,  label: "argentina-1.jpg" },
+  { keyword: "brazil,football",   lock: 1,  label: "brazil-1.jpg" },
+].freeze
+
+PHOTOS.each do |photo_data|
+  url = "https://loremflickr.com/800/600/#{photo_data[:keyword]}?lock=#{photo_data[:lock]}"
+  user = users.sample
+
+  begin
+    file = URI.open(url, read_timeout: 15)
+    photo = user.photos.new
+    photo.image.attach(
+      io:           file,
+      filename:     photo_data[:label],
+      content_type: "image/jpeg"
+    )
+    photo.save!
+    puts "  ✓ #{photo_data[:label]}"
+  rescue => e
+    puts "  ✗ #{photo_data[:label]} — #{e.message}"
+  end
+end
+
 puts "Terminé !"
 puts "  #{User.count} utilisateurs"
 puts "  #{Article.count} articles (#{Article.where(private: true).count} privés)"
 puts "  #{Comment.count} commentaires"
+puts "  #{Photo.count} photos"
