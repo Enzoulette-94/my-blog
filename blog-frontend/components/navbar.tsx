@@ -18,13 +18,13 @@ export function Navbar() {
   const { theme, setTheme } = useTheme()
 
   return (
-    <header className="border-b bg-background sticky top-0 z-50">
+    <header className="border-b bg-primary sticky top-0 z-50">
       <div className="max-w-5xl mx-auto px-4 h-14 flex items-center justify-between">
         <div className="flex items-center gap-4">
-          <Link href="/articles" className="font-bold text-lg tracking-tight">
+          <Link href="/articles" className="font-bold text-lg tracking-tight text-primary-foreground">
             EnzouletteBlog
           </Link>
-          <Button asChild variant="ghost" size="sm">
+          <Button asChild variant="ghost" size="sm" className="text-primary-foreground hover:bg-primary-foreground/10">
             <Link href="/">Potins</Link>
           </Button>
         </div>
@@ -33,6 +33,7 @@ export function Navbar() {
           <Button
             variant="ghost"
             size="icon"
+            className="text-primary-foreground hover:bg-primary-foreground/10"
             onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
             aria-label="Changer le thème"
           >
@@ -44,7 +45,7 @@ export function Navbar() {
             <>
               {user ? (
                 <>
-                  <Button asChild variant="default" size="sm">
+                  <Button asChild size="sm" className="bg-secondary text-secondary-foreground hover:bg-secondary/90">
                     <Link href="/articles/new">
                       <PenSquare className="h-4 w-4 mr-1" />
                       Écrire
@@ -52,7 +53,7 @@ export function Navbar() {
                   </Button>
                   <DropdownMenu>
                     <DropdownMenuTrigger asChild>
-                      <Button variant="ghost" size="sm">
+                      <Button variant="ghost" size="sm" className="text-primary-foreground hover:bg-primary-foreground/10">
                         <User className="h-4 w-4 mr-1" />
                         {user.email.split("@")[0]}
                       </Button>
@@ -74,10 +75,10 @@ export function Navbar() {
                 </>
               ) : (
                 <>
-                  <Button asChild variant="ghost" size="sm">
+                  <Button asChild variant="ghost" size="sm" className="text-primary-foreground hover:bg-primary-foreground/10">
                     <Link href="/login">Connexion</Link>
                   </Button>
-                  <Button asChild size="sm">
+                  <Button asChild size="sm" className="bg-secondary text-secondary-foreground hover:bg-secondary/90">
                     <Link href="/signup">Inscription</Link>
                   </Button>
                 </>
