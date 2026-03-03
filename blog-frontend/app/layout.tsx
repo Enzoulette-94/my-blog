@@ -7,7 +7,7 @@ import { Navbar } from "@/components/navbar"
 const geist = Geist({ subsets: ["latin"], variable: "--font-geist-sans" })
 
 export const metadata: Metadata = {
-  title: "Blog",
+  title: "EnzouletteBlog",
   description: "Un blog moderne avec Rails & Next.js",
 }
 
