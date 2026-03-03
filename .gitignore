@@ -1,0 +1,18 @@
+# Rails
+blog_api/.bundle
+blog_api/log/
+blog_api/tmp/
+blog_api/storage/
+blog_api/vendor/bundle
+blog_api/*.env
+blog_api/config/credentials.yml.enc
+blog_api/config/master.key
+
+# Next.js
+blog-frontend/.next/
+blog-frontend/node_modules/
+blog-frontend/.env*.local
+blog-frontend/.env
+
+# OS
+.DS_Store

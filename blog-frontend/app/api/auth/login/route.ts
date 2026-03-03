@@ -1,0 +1,31 @@
+import { NextRequest, NextResponse } from "next/server"
+import { authApi } from "@/lib/api"
+
+export async function POST(req: NextRequest) {
+  try {
+    const body = await req.json()
+    const { data, headers } = await authApi.login({ user: body })
+
+    const token = headers.get("authorization")?.split(" ")[1]
+    if (!token) {
+      return NextResponse.json({ error: "Token manquant" }, { status: 500 })
+    }
+
+    // Retourne user + token dans le body ET set le cookie httpOnly pour les Server Components
+    const res = NextResponse.json({ ...(data as object), token }, { status: 200 })
+    res.cookies.set("token", token, {
+      httpOnly: true,
+      secure: process.env.NODE_ENV === "production",
+      sameSite: "lax",
+      path: "/",
+      maxAge: 60 * 60 * 24,
+    })
+    return res
+  } catch (err: unknown) {
+    const e = err as { status?: number; error?: string }
+    return NextResponse.json(
+      { error: e.error || "Identifiants invalides" },
+      { status: e.status || 401 }
+    )
+  }
+}
