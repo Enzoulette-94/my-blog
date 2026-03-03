@@ -19,11 +19,11 @@ export function Navbar() {
     <header className="border-b bg-primary sticky top-0 z-50">
       <div className="max-w-5xl mx-auto px-4 h-14 flex items-center justify-between">
         <div className="flex items-center gap-4">
-          <Link href="/articles" className="font-bold text-lg tracking-tight text-primary-foreground">
+          <Link href="/" className="font-bold text-lg tracking-tight text-primary-foreground">
             EnzouletteBlog
           </Link>
           <Button asChild variant="ghost" size="sm" className="text-primary-foreground hover:bg-primary-foreground/10">
-            <Link href="/">Potins</Link>
+            <Link href="/articles">Potins</Link>
           </Button>
         </div>
 
